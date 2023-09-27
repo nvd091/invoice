@@ -31,6 +31,32 @@ $( document ).ready( () => {
         const customerType = $("#type").val();
         let subtotal = $("#subtotal").val();
         subtotal = parseFloat(subtotal);
+
+        // Use Date
+    function dates(value) {
+        let date = new Date(value);
+        return date;
+      }
+      const datefinal = dates($("#invoice_date").val());
+  
+      if (datefinal == "Invalid Date") {
+        // Error Message
+        alert("please enter valid date with MM/DD/YYYY format.");
+        $("#clear").click();
+        $("#invoice_date").focus();
+        let currentdate = new Date();
+        let finaldate =
+          currentdate.getMonth() +
+          1 +
+          "/" +
+          currentdate.getDate() +
+          "/" +
+          currentdate.getFullYear();
+        $("#invoice_date").val(finaldate);
+        return;
+      }
+
+
         if ( isNaN(subtotal) || subtotal <= 0) {
             alert("Subtotal must be a number greater than zero.");
             $("#clear").click();
