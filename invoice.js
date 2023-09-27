@@ -77,6 +77,16 @@ $( document ).ready( () => {
         const invoicedate = dates($("#invoice_date").val());
         invoicedate.setDate(invoicedate.getDate() + 30);
 
+         // Confirm due date
+    let confirmduedate =
+    invoicedate.getMonth() +
+    1 +
+    "/" +
+    invoicedate.getDate() +
+    "/" +
+    invoicedate.getFullYear();
+
+  $("#due_date").val(confirmduedate);
         
 
         // set focus on type drop-down when done  
