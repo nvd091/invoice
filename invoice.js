@@ -56,7 +56,7 @@ $( document ).ready( () => {
         return;
       }
 
-
+        // subtotal is not a number or less then equal to 0
         if ( isNaN(subtotal) || subtotal <= 0) {
             alert("Subtotal must be a number greater than zero.");
             $("#clear").click();
@@ -72,6 +72,12 @@ $( document ).ready( () => {
         $("#percent").val( (discountPercent * 100).toFixed(2) );
         $("#discount").val( discountAmount.toFixed(2) );
         $("#total").val(  invoiceTotal.toFixed(2) );
+
+        // invoice date with val method
+        const invoicedate = dates($("#invoice_date").val());
+        invoicedate.setDate(invoicedate.getDate() + 30);
+
+        
 
         // set focus on type drop-down when done  
         $("#type").focus();
